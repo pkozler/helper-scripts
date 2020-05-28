@@ -1,9 +1,9 @@
 #!/bin/bash
 
-project_path='/c/shipgratis/'
-script_name=$(basename $0)
+project='/c/shipgratis/'
+script=$(basename $0)
 
-cd $project_path
+cd $project
 
 if [ $# -gt 2 ]
 then
@@ -11,19 +11,19 @@ then
 	exit
 fi
 
-branch_name="$(git symbolic-ref HEAD 2>/dev/null)" ||
-branch_name="" # detached HEAD
+branch="$(git symbolic-ref HEAD 2>/dev/null)" ||
+branch="" # detached HEAD
 
-if [ -z "${branch_name}" ]
+if [ -z "${branch}" ]
 then
 	echo 'Unnamed branch - operation canceled!'
 	exit
 fi
 
-branch_name=${branch_name##refs/heads/}
-task_name=$(echo $branch_name| cut -d'/' -f 2)
+branch=${branch##refs/heads/}
+task=$(echo $branch| cut -d'/' -f 2)
 
-echo "Task: ${task_name}"
+echo "Task: ${task}"
 
 echo
 echo 'Checking...'
@@ -36,10 +36,10 @@ then
 	exit
 fi
 
-commit_message="${task_name} ${1}"
+commit=$(echo "${task} ${1}")
 
 echo
-echo $commit_message
+echo $commit
 
 echo
 echo 'Moving changes to the staging area...'
@@ -47,7 +47,8 @@ git add .
 
 echo
 echo 'Saving changes to the local repository...'
-git commit -m $(echo commit_message)
+
+git commit -m"$commit"
 
 echo
 echo 'Updating remote repository...'
