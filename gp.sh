@@ -1,9 +1,7 @@
 #!/bin/bash
 
-project='/c/shipgratis/'
 script=$(basename $0)
-
-cd $project
+cd "${PROJECT_PATH}/"
 
 if [ $# -gt 2 ]
 then
@@ -32,23 +30,22 @@ git status
 if [ $# -lt 1 ]
 then
 	echo
-	echo 'Missing commit message - operation canceled!'
-	exit
+	echo 'Missing commit message - performing push only...'
+else
+	commit=$(echo "${task} ${1}")
+
+	echo
+	echo $commit
+
+	echo
+	echo 'Moving changes to the staging area...'
+	git add .
+
+	echo
+	echo 'Saving changes to the local repository...'
+
+	git commit -m"$commit"
 fi
-
-commit=$(echo "${task} ${1}")
-
-echo
-echo $commit
-
-echo
-echo 'Moving changes to the staging area...'
-git add .
-
-echo
-echo 'Saving changes to the local repository...'
-
-git commit -m"$commit"
 
 echo
 echo 'Updating remote repository...'

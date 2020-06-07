@@ -1,9 +1,7 @@
 #!/bin/bash
 
-project_path='/c/shipgratis/'
 script_name=$(basename $0)
-
-cd $project_path
+cd "${PROJECT_PATH}/"
 
 if [ $# -gt 0 ]
 then
