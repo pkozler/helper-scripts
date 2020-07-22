@@ -49,5 +49,3 @@ FOR /F "tokens=*" %%i IN (' dir /b /A %APPDATA%\JetBrains\IntelliJIdea* ') DO SE
 cd %INTELLIJ_DIR%
 del options\other.xml
 del eval\*.evaluation.key
-
-pause

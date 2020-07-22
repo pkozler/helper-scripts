@@ -1,7 +1,9 @@
 #!/bin/bash
 
 script=$(basename $0)
-cd "${PROJECT_PATH}/"
+
+echo "${WEBROOT_PATH}"
+cd $WEBROOT_PATH
 
 if [ $# -gt 2 ]
 then

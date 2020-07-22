@@ -1,7 +1,9 @@
 #!/bin/bash
 
 script_name=$(basename $0)
-cd "${PROJECT_PATH}/"
+
+echo "${WEBROOT_PATH}"
+cd $WEBROOT_PATH
 
 if [ $# -gt 0 ]
 then
@@ -18,7 +20,7 @@ fi
 
 if [ $# -gt 1 ]
 then
-	if [[ $2 =~ [0-9]+[_]?[a-z]* ]]
+	if [[ $2 =~ [0-9a-z_]+ ]]
 	then
 		task=$2
 	else
