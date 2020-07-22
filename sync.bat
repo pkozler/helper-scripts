@@ -28,3 +28,5 @@ if not exist "%dest%" mkdir %dest%
 
 echo Done!
 echo/
+
+pause
