@@ -1,3 +1,5 @@
+C:
+
 REM PhpStorm:
 
 FOR /F "tokens=*" %%i IN (' dir /b /A %HOMEPATH%\.PhpStorm* ') DO SET PHPSTORM_DIR=%HOMEPATH%\%%i
