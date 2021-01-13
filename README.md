@@ -1,2 +1,2 @@
 # helper-scripts
-Tento repozitář obsahuje shell skripty, určené k automatizaci rutinních činností, prováděných během vývoje aplikací.
+This repo contains shell scripts to automate the repetitive tasks during the application development, designed for shipgratis project of ateli-development.
