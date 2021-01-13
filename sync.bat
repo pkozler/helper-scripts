@@ -1,6 +1,6 @@
 @echo off
 
-set "list=PhpStorm2020.1 PyCharm2020.1"
+set "list=PhpStorm2020.1 PyCharm2020.1 PhpStorm2020.2 PyCharm2020.2 PhpStorm2020.3 PyCharm2020.3"
 echo/
 
 set dest=.\data\scratches
