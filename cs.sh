@@ -7,6 +7,12 @@ gc_output_log=".git-count.log"
 gc_locker_file=".~git-count.lock"
 gc_current_pwd="$(pwd -LP)"
 
+if [ $# -gt 1 ]
+then gc_current_author=${1}
+else gc_current_author="pkozler"
+fi
+
+echo "AUTHOR: '$gc_current_author'"
 (rm -rf "$gc_setup_dir" && mkdir --parents "$gc_setup_dir" && cd "$gc_setup_dir")
 
 if [ -f "$gc_locker_file" ]
@@ -18,4 +24,4 @@ while [ -f "$gc_locker_file" ]
 do (echo "..." && sleep 1)
 done
 
-(echo "Unlocked." && cd "git-count" && python "setup.py" install --user && cd "$gc_web_root" && python -m gitcount --period="daily" --first="mon" --author="pkozler.email@gmail.com" --number="$gc_int_back" && cd "$gc_current_pwd")
+(echo "Unlocked." && cd "git-count" && python "setup.py" install --user && cd "$gc_web_root" && python -m gitcount --period="daily" --first="mon" --author="$gc_current_author" --number="$gc_int_back" && cd "$gc_current_pwd")
